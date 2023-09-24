@@ -6,6 +6,7 @@ import Services from '../components/Services'
 import Team from '../components/Team'
 import Contact from '../components/Contact'
 import Resources from '../components/Resources'
+import TopBanner from '../components/TopBanner'
 
 const Container = styled.main`
   position: relative;
@@ -31,10 +32,13 @@ const Content = styled.div`
 const IndexPage: React.FC<PageProps> = ({data}) => {
   return (
     <Container>
+      <TopBanner />
       <Header />
       <Content>
+        {/* about us */}
         <Services />
         <Team />
+        {/* testimonials */}
         <Contact />
         <Resources />
       </Content>
@@ -44,4 +48,4 @@ const IndexPage: React.FC<PageProps> = ({data}) => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <title>Komplete Nutrition</title>
