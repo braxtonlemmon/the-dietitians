@@ -26,9 +26,9 @@ const MainHeader = styled.header`
   position: sticky;
   top: 0px;
   background: white;
-  border-bottom: 1px solid yellow;
   z-index: 2;
   color: #347b6d;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 `
 
 const RowContainer = styled.div`
@@ -52,22 +52,20 @@ const Links = styled.div`
   align-items: center;
 `
 
-const Title = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-const Word = styled.h1`
-  text-transform: uppercase;
-`
-
-const LogoContainer = styled.div`
+const LogoContainer = styled.a`
   height: 80px;
+  cursor: pointer;
 `
 
 const Logo = styled.img`
   height: 100%;
   width: 100%;
+`
+
+const Callable = styled.a`
+  display: flex;
+  gap: 15px;
+  align-items: center;
 `
 
 const links: Link[] = [
@@ -80,16 +78,20 @@ const links: Link[] = [
     section: '#about',
   },
   {
-    title: 'Testimonials',
-    section: '#testimonials',
-  },
-  {
     title: 'Services',
     section: '#services',
   },
   {
     title: 'Team',
     section: '#team',
+  },
+  {
+    title: 'Testimonials',
+    section: '#testimonials',
+  },
+  {
+    title: 'Contact',
+    section: '#contact',
   },
 ]
 
@@ -106,13 +108,10 @@ const Header: React.FC = () => {
     }
   `)
 
-  useEffect(() => {
-    console.log(data)
-  }, [])
   return (
     <MainHeader>
       <RowContainer>
-        <LogoContainer>
+        <LogoContainer href="#home">
           <Logo
             src={data.allFile.edges[0].node.publicURL}
             alt="komplete nutrition logo"
@@ -124,10 +123,10 @@ const Header: React.FC = () => {
           return <Link href={link.section}>{link.title}</Link>
         })}
       </Links>
-      <RowContainer>
+      <Callable href="tel:801-600-7125">
         <BsFillTelephoneFill />
         <p>8016007125</p>
-      </RowContainer>
+      </Callable>
     </MainHeader>
   )
 }

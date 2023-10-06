@@ -15,6 +15,22 @@ const config: GatsbyConfig = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
+        web: [
+          {
+            name: `Quicksand`,
+            file: `https://fonts.googleapis.com/css2?family=Quicksand&display=swap`,
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/images/`,

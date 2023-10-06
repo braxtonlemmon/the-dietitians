@@ -38,7 +38,7 @@ const RightSide = styled.div`
 const TopBanner: React.FC = () => {
   const yellow = '#deff94'
   return (
-    <Container>
+    <Container id="home">
       <LeftSide>
         <LeftItem>
           <BsFillTelephoneFill color={yellow} fontSize={18} />

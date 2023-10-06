@@ -6,12 +6,12 @@ const Container = styled.div`
   padding: 0 200px;
 `
 
-const Team: React.FC = () => {
+const Testimonials: React.FC = () => {
   return (
     <SectionWrapper>
-      <div style={{height: '50px', width: '100%'}} id="team" />
+      <div style={{height: '50px', width: '100%'}} id="testimonials" />
       <Container>
-        <Title>Team</Title>
+        <Title>Testimonials</Title>
         <p>
           Tempus urna et pharetra pharetra massa massa ultricies mi quis. Eu sem
           integer vitae justo eget. Orci sagittis eu volutpat odio facilisis
@@ -29,4 +29,4 @@ const Team: React.FC = () => {
   )
 }
 
-export default Team
+export default Testimonials

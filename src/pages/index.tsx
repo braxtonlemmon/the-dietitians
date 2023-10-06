@@ -7,6 +7,10 @@ import Team from '../components/Team'
 import Contact from '../components/Contact'
 import Resources from '../components/Resources'
 import TopBanner from '../components/TopBanner'
+import Hero from '../components/Hero'
+import About from '../components/About'
+import Footer from '../components/Footer'
+import Testimonials from '../components/Testimonials'
 
 const Container = styled.main`
   position: relative;
@@ -19,14 +23,12 @@ const Container = styled.main`
 
 const Content = styled.div`
   width: 100%;
-  max-width: 1300px;
   margin: 0 auto;
-  margin-top: 160px;
   flex-direction: column;
   display: flex;
   gap: 70px;
   z-index: 1;
-  padding: 0 50px;
+  padding-top: 60px;
 `
 
 const IndexPage: React.FC<PageProps> = ({data}) => {
@@ -34,14 +36,15 @@ const IndexPage: React.FC<PageProps> = ({data}) => {
     <Container>
       <TopBanner />
       <Header />
+      <Hero />
       <Content>
-        {/* about us */}
+        <About />
         <Services />
         <Team />
-        {/* testimonials */}
+        <Testimonials />
         <Contact />
-        <Resources />
       </Content>
+      <Footer />
     </Container>
   )
 }

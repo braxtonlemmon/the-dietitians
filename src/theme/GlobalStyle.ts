@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import {createGlobalStyle} from 'styled-components'
+import reset from 'styled-reset'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -7,13 +7,13 @@ const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    font-family: 'Lexend', 'sans-serif';
+    font-family: 'Quicksand', 'sans-serif';
   }
 
   body, html {
     height: 100%;
     width: 100%;
-    font-family: 'Lexend', 'sans-serif';
+    font-family: 'Quicksand', 'sans-serif';
   }
 
   html {
@@ -33,6 +33,6 @@ const GlobalStyle = createGlobalStyle`
     color: black;
   }
 
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle
