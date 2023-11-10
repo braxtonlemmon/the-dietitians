@@ -11,7 +11,8 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Footer from '../components/Footer'
 import Testimonials from '../components/Testimonials'
-
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 const Container = styled.main`
   position: relative;
   width: 100%;
@@ -26,9 +27,8 @@ const Content = styled.div`
   margin: 0 auto;
   flex-direction: column;
   display: flex;
-  gap: 70px;
+  /* gap: 70px; */
   z-index: 1;
-  padding-top: 60px;
 `
 
 const IndexPage: React.FC<PageProps> = ({data}) => {
@@ -40,8 +40,8 @@ const IndexPage: React.FC<PageProps> = ({data}) => {
       <Content>
         <About />
         <Services />
-        <Team />
         <Testimonials />
+        <Team />
         <Contact />
       </Content>
       <Footer />

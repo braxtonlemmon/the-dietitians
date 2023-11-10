@@ -47,7 +47,7 @@ const Link = styled.a`
 
 const Links = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 20px;
   justify-content: flex-start;
   align-items: center;
 `
@@ -82,12 +82,12 @@ const links: Link[] = [
     section: '#services',
   },
   {
-    title: 'Team',
-    section: '#team',
-  },
-  {
     title: 'Testimonials',
     section: '#testimonials',
+  },
+  {
+    title: 'Team',
+    section: '#team',
   },
   {
     title: 'Contact',
@@ -123,9 +123,9 @@ const Header: React.FC = () => {
           return <Link href={link.section}>{link.title}</Link>
         })}
       </Links>
-      <Callable href="tel:801-600-7125">
+      <Callable href="tel:801-995-9458">
         <BsFillTelephoneFill />
-        <p>8016007125</p>
+        <p>801-995-9458</p>
       </Callable>
     </MainHeader>
   )

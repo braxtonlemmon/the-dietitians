@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Button} from '../shared'
 
 const Container = styled.div`
   width: 100%;
@@ -10,7 +11,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   display: relative;
-  background-color: green;
+  background-color: #a8af9d;
 `
 
 const HeroText = styled.h2`
@@ -42,10 +43,6 @@ const Buttons = styled.div`
   gap: 15px;
 `
 
-const Button = styled.button`
-  cursor: pointer;
-`
-
 const Hero: React.FC = () => {
   return (
     <Container>
@@ -62,8 +59,14 @@ const Hero: React.FC = () => {
           pariatur.
         </Description>
         <Buttons>
-          <Button>Get in touch</Button>
-          <Button>More about us</Button>
+          <a href="tel:801-995-9458">
+            <Button type="primaryFilled">
+              Book a 15 min free consult today!
+            </Button>
+          </a>
+          <a href="#about">
+            <Button type="secondaryFilled">More about us</Button>
+          </a>
         </Buttons>
       </SubInfo>
     </Container>

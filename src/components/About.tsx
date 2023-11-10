@@ -1,11 +1,23 @@
-import React from 'react'
-import {SectionWrapper, TextBlock, Title} from '../shared'
+import React, {ReactElement} from 'react'
+import {Button, SectionWrapper, TextBlock, Title} from '../shared'
 import styled from 'styled-components'
+import {LuApple} from 'react-icons/lu'
+import {IconType} from 'react-icons'
 
 type GridItem = {
-  icon: string
+  icon: ReactElement
   text: string
 }
+
+const Container = styled.div`
+  /* padding: 0 200px; */
+  padding-bottom: 50px;
+`
+
+const TextBlockTitle = styled.h3`
+  font-weight: 600;
+  margin-bottom: 15px;
+`
 
 const AboutOne = styled.div`
   width: 40%;
@@ -18,7 +30,7 @@ const AboutTwo = styled.div`
   background: #deff94;
   padding: 100px 200px;
   position: relative;
-  padding-bottom: 320px;
+  padding-bottom: 180px;
 `
 
 const AboutThree = styled.div`
@@ -74,23 +86,16 @@ const GridCard = styled.div`
   background: #feffff;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   padding: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   z-index: 3;
   border-radius: 15px;
 `
 
-const GridCardIcon = styled.div`
-  height: 80px;
-  width: 80px;
-  border: 1px solid blue;
-  border-radius: 50%;
-`
-
 const GridCardText = styled.p`
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
 `
 
 const ContactLink = styled.a`
@@ -99,80 +104,93 @@ const ContactLink = styled.a`
 `
 
 const gridItems: GridItem[] = [
-  {
-    icon: '',
-    text: 'Anti-diet',
-  },
-  {icon: '', text: 'Gentle nutrition'},
-  {icon: '', text: 'Health at every size'},
-  {icon: '', text: 'Intuitive eating'},
-  {icon: '', text: 'Patient centered'},
-  {icon: '', text: 'Food as medicine'},
-  {icon: '', text: 'Behavior focused'},
-  {icon: '', text: 'Weight neutral'},
+  {icon: <LuApple size={34} color="grey" />, text: 'Anti-diet'},
+  {icon: <LuApple size={34} color="grey" />, text: 'Gentle nutrition'},
+  {icon: <LuApple size={34} color="grey" />, text: 'Health at every size'},
+  {icon: <LuApple size={34} color="grey" />, text: 'Intuitive eating'},
+  {icon: <LuApple size={34} color="grey" />, text: 'Patient centered'},
+  {icon: <LuApple size={34} color="grey" />, text: 'Food as medicine'},
+  {icon: <LuApple size={34} color="grey" />, text: 'Behavior focused'},
+  {icon: <LuApple size={34} color="grey" />, text: 'Weight neutral'},
 ]
 const About: React.FC = () => {
   return (
     <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="about" />
-      <AboutOne>
-        <Title style={{marginBottom: '50px'}}>
-          Improving The Quality Of Your Life Through Better Health. Better
-          Nutrition.
-        </Title>
-        <TextBlock>
-          Tempus urna et pharetra pharetra massa massa ultricies mi quis. Eu sem
-          integer vitae justo eget. Orci sagittis eu volutpat odio facilisis
-          mauris sit amet massa. Ac feugiat sed lectus vestibulum mattis
-          ullamcorper velit sed ullamcorper. Ipsum dolor sit amet consectetur.
-          Elit at imperdiet dui accumsan.
-        </TextBlock>
-        <TextBlock>
-          Tempus urna et pharetra pharetra massa massa ultricies mi quis. Eu sem
-          integer vitae justo eget. Orci sagittis eu volutpat odio facilisis
-          mauris sit amet massa. Ac feugiat sed lectus vestibulum mattis
-          ullamcorper velit sed ullamcorper. Ipsum dolor sit amet consectetur.
-          Elit at imperdiet dui accumsan.
-        </TextBlock>
-      </AboutOne>
-      <VideoContainer />
-      <AboutTwo>
-        <AboutBottomTopHalf>
-          <Title>Values</Title>
-          <CallToAction>
-            <TextBlock>
-              Tempus urna et pharetra pharetra massa massa ultricies mi quis. Eu
-              sem integer vitae justo eget. Orci sagittis eu volutpat odio
-              facilisis mauris sit amet massa. Ac feugiat sed lectus vestibulum
-              mattis ullamcorper velit sed ullamcorper.
-            </TextBlock>
-            <Buttons>
-              <button>click</button>
-            </Buttons>
-          </CallToAction>
-        </AboutBottomTopHalf>
-        <GridContainer>
-          {gridItems.map((gridItem, index) => {
-            return (
-              <GridCard key={`grid-item-${index}`}>
-                <GridCardIcon />
-                <GridCardText>{gridItem.text}</GridCardText>
-              </GridCard>
-            )
-          })}
-        </GridContainer>
-      </AboutTwo>
-      <AboutThree>
-        <TextBlock style={{maxWidth: '600px', textAlign: 'center'}}>
-          Tempus urna et pharetra pharetra massa massa ultricies mi quis. Eu sem
-          integer vitae justo eget. Orci sagittis eu volutpat odio facilisis
-          mauris sit amet massa. Ac feugiat sed lectus vestibulum mattis
-          ullamcorper velit sed ullamcorper.
-        </TextBlock>
-        <ContactLink href="#contact">
-          Contact Us For More Information
-        </ContactLink>
-      </AboutThree>
+      <Container>
+        <AboutOne>
+          <Title style={{marginBottom: '50px'}}>What We Do</Title>
+          <TextBlockTitle>Disordered Eating & Eating Disorders</TextBlockTitle>
+          <TextBlock style={{marginBottom: '30px'}}>
+            Whether you’ve been diagnosed with an eating disorder or struggling
+            with diet culture, self-image, and your relationship with food, we
+            can help! We aim to heal your relationship with your body and help
+            you make peace with food. Our approach is that of Health at Every
+            Size and Intuitive Eating.
+          </TextBlock>
+          <TextBlockTitle>Gastrointestinal Health</TextBlockTitle>
+          <TextBlock style={{marginBottom: '30px'}}>
+            Recent diagnosis with IBS, SIBO, Crohn’s, or Colitis? Or maybe you
+            are struggling with upset stomach, diarrhea, constipation, and/or
+            pain and have tried everything to no avail? Maybe you’re afraid to
+            eat or go anywhere too far from a bathroom? We are here for you.
+            Working with gastrointestinal issues, needs to be tailored to the
+            individual and working with their unique gut biome. Nutritional
+            counseling as part of your treatment plan can help heal your gut and
+            identify triggers to guide you to liberation from your aggravating
+            symptoms.
+          </TextBlock>
+          <TextBlockTitle>
+            Chronic Disease Management and Prevention
+          </TextBlockTitle>
+          <TextBlock style={{marginBottom: '30px'}}>
+            Whatever chronic disease you’ve been diagnosed with, there is
+            promise of management and treatment through healing nutrition. Our
+            approach is focused on making sustainable lifestyle behavior changes
+            to guide you back to living your healthiest life.
+          </TextBlock>
+        </AboutOne>
+        <VideoContainer />
+        <AboutTwo>
+          <AboutBottomTopHalf>
+            <Title>Values</Title>
+            <CallToAction>
+              <TextBlock>
+                Tempus urna et pharetra pharetra massa massa ultricies mi quis.
+                Eu sem integer vitae justo eget. Orci sagittis eu volutpat odio
+                facilisis mauris sit amet massa. Ac feugiat sed lectus
+                vestibulum mattis ullamcorper velit sed ullamcorper.
+              </TextBlock>
+              <Buttons>
+                <a href="tel:801-995-9458">
+                  <Button type="primaryFilled">Make Appointment</Button>
+                </a>
+              </Buttons>
+            </CallToAction>
+          </AboutBottomTopHalf>
+          <GridContainer>
+            {gridItems.map((gridItem, index) => {
+              return (
+                <GridCard key={`grid-item-${index}`}>
+                  {gridItem.icon}
+                  <GridCardText>{gridItem.text}</GridCardText>
+                </GridCard>
+              )
+            })}
+          </GridContainer>
+        </AboutTwo>
+        <AboutThree>
+          <TextBlock style={{maxWidth: '600px', textAlign: 'center'}}>
+            Tempus urna et pharetra pharetra massa massa ultricies mi quis. Eu
+            sem integer vitae justo eget. Orci sagittis eu volutpat odio
+            facilisis mauris sit amet massa. Ac feugiat sed lectus vestibulum
+            mattis ullamcorper velit sed ullamcorper.
+          </TextBlock>
+          <ContactLink href="#contact">
+            Contact Us For More Information
+          </ContactLink>
+        </AboutThree>
+      </Container>
     </SectionWrapper>
   )
 }
