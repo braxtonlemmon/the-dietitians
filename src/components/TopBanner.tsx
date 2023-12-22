@@ -3,8 +3,11 @@ import styled from 'styled-components'
 import {MdLocationOn} from 'react-icons/md'
 import {BsFillTelephoneFill} from 'react-icons/bs'
 import {AiFillClockCircle} from 'react-icons/ai'
-import {FaFacebook, FaTwitter, FaYoutube} from 'react-icons/fa'
+import {MdOutlineMail} from 'react-icons/md'
+
+import {FaFacebook, FaInstagram} from 'react-icons/fa'
 import {Link} from 'gatsby'
+import {useWindowSize} from '../hooks/useWindowSize'
 
 const Container = styled.div`
   display: flex;
@@ -13,6 +16,10 @@ const Container = styled.div`
   background-color: #347b6d;
   width: 100%;
   color: #fff;
+  z-index: 5;
+  @media (max-width: 767px) {
+    padding: 20px;
+  }
 `
 
 const LeftSide = styled.div`
@@ -35,33 +42,34 @@ const RightSide = styled.div`
   align-items: center;
 `
 
+const Emailable = styled.a`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+`
+
 const TopBanner: React.FC = () => {
   const yellow = '#deff94'
+  // const yellow = '#fff'
+  const {width} = useWindowSize()
+  const shouldShowEmail = width < 767
   return (
     <Container id="home">
       <LeftSide>
-        <LeftItem>
-          <BsFillTelephoneFill color={yellow} fontSize={18} />
-          <p>Emergency Line: 911</p>
-        </LeftItem>
-        <LeftItem>
-          <MdLocationOn color={yellow} fontSize={20} />
-          <p>Location: SLC, Utah</p>
-        </LeftItem>
-        <LeftItem>
-          <AiFillClockCircle color={yellow} fontSize={18} />
-          <p>Mon-Fri: 8:00 am - 5:00 pm</p>
-        </LeftItem>
+        {' '}
+        {shouldShowEmail && (
+          <Emailable href="mailto:komplete.info.k@gmail.com">
+            <MdOutlineMail size={24} color={yellow} />
+            <p style={{color: yellow}}>komplete.info.k@gmail.com</p>
+          </Emailable>
+        )}
       </LeftSide>
       <RightSide>
         <Link to="#">
           <FaFacebook color={yellow} fontSize={18} />
         </Link>
         <Link to="#">
-          <FaTwitter color={yellow} fontSize={18} />
-        </Link>
-        <Link to="#">
-          <FaYoutube color={yellow} fontSize={18} />
+          <FaInstagram color={yellow} fontSize={18} />
         </Link>
       </RightSide>
     </Container>

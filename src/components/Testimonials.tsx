@@ -3,12 +3,18 @@ import {SectionWrapper, Title} from '../shared'
 import styled from 'styled-components'
 import Slider from 'react-slick'
 import {AiOutlineArrowRight, AiOutlineArrowLeft} from 'react-icons/ai'
+import {useWindowSize} from '../hooks/useWindowSize'
+import {StaticImage} from 'gatsby-plugin-image'
 
 const Container = styled.div`
-  padding: 0 150px;
+  /* padding: 0 150px; */
   /* background: lightgrey; */
+  padding: 0 100px 50px 100px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
   .slider {
-    height: 400px;
+    height: 320px;
   }
   .slick-prev {
     z-index: 1;
@@ -16,13 +22,26 @@ const Container = styled.div`
   .slick-next {
     z-index: 1;
   }
+  @media (max-width: 767px) {
+    padding: 0 50px 50px 50px;
+  }
+`
+
+const InnerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `
 
 const TestimonialContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 320px;
   width: 100%;
   padding: 0 15px;
 `
@@ -54,33 +73,50 @@ const testimonials: string[] = [
 ]
 
 const Testimonials: React.FC = () => {
+  const {width} = useWindowSize()
   const settings = {
     dots: true,
     arrows: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    // slidesToShow: width > 767 ? 2 : 1,
+    slidesToShow: 1,
     slidesToScroll: 1,
   }
+
   return (
     <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="testimonials" />
       <Container>
         <Title>Testimonials</Title>
-        <Slider
-          {...settings}
-          className="slider"
-          nextArrow={<RightArrow color="black" />}
-          prevArrow={<LeftArrow color="black" />}
-        >
-          {testimonials.map((testimonial) => (
-            <div>
-              <TestimonialContainer>
-                <Testimonial>{`"${testimonial}"`}</Testimonial>
-              </TestimonialContainer>
-            </div>
-          ))}
-        </Slider>
+        <InnerContainer>
+          <div style={{width: width < 767 ? '100%' : '60%'}}>
+            <StaticImage
+              src="../images/image_5.jpeg"
+              alt=""
+              style={{
+                borderRadius: '10px',
+                maxHeight: '600px',
+              }}
+            />
+          </div>
+          <div style={{width: width < 767 ? '100%' : '40%'}}>
+            <Slider
+              {...settings}
+              className="slider"
+              nextArrow={<RightArrow color="black" />}
+              prevArrow={<LeftArrow color="black" />}
+            >
+              {testimonials.map((testimonial) => (
+                <div>
+                  <TestimonialContainer>
+                    <Testimonial>{`"${testimonial}"`}</Testimonial>
+                  </TestimonialContainer>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </InnerContainer>
       </Container>
     </SectionWrapper>
   )

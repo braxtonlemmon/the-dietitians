@@ -1,16 +1,31 @@
 import React from 'react'
 import {SectionWrapper, TextBlock, Title} from '../shared'
 import styled from 'styled-components'
+import {graphql, useStaticQuery} from 'gatsby'
+import {StaticImage} from 'gatsby-plugin-image'
 
 const Container = styled.div`
-  padding: 0 200px;
-  padding-bottom: 50px;
+  /* padding: 0 200px; */
+  padding: 0 100px 50px 100px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  @media (max-width: 767px) {
+    padding: 0 50px 50px 50px;
+  }
+  @media (max-width: 500px) {
+    padding: 0 25px 50px 25px;
+  }
 `
 
 const TeamMemberSection = styled.div`
   display: flex;
   gap: 30px;
   margin-top: 40px;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const TeamMemberCard = styled.div`
@@ -26,7 +41,6 @@ const TeamMemberCard = styled.div`
 const TeamMemberPhoto = styled.div`
   height: 200px;
   width: 200px;
-  background: #787878;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 `
@@ -50,7 +64,7 @@ const Titles = styled.p`
 
 const Team: React.FC = () => {
   return (
-    <SectionWrapper style={{backgroundColor: '#dfdfdf'}}>
+    <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="team" />
       <Container>
         <Title>Meet Our Team</Title>
@@ -66,7 +80,19 @@ const Team: React.FC = () => {
         {/* Kelli Jo  */}
         <TeamMemberSection>
           <TeamMemberCard>
-            <TeamMemberPhoto />
+            <TeamMemberPhoto>
+              <StaticImage
+                src="../images/profile_pic_kelli_jo.jpeg"
+                alt="kelli jo profile pic"
+                height={200}
+                width={200}
+                // layout="constrained"
+                style={{
+                  borderTopLeftRadius: '10px',
+                  borderTopRightRadius: '10px',
+                }}
+              />
+            </TeamMemberPhoto>
             <TeamMemberTitles>
               <p>Kelli Jo Grover</p>
               <Titles>MS, RD</Titles>
@@ -111,7 +137,19 @@ const Team: React.FC = () => {
         {/* Kylie */}
         <TeamMemberSection>
           <TeamMemberCard>
-            <TeamMemberPhoto />
+            <TeamMemberPhoto>
+              {' '}
+              <StaticImage
+                src="../images/profile_pic_kylie_3.jpeg"
+                alt="kylie profile pic"
+                height={200}
+                width={200}
+                style={{
+                  borderTopLeftRadius: '10px',
+                  borderTopRightRadius: '10px',
+                }}
+              />
+            </TeamMemberPhoto>
             <TeamMemberTitles>
               <p>Kylie Peterson</p>
               <Titles>MPH, RDN, CDCES, RYT</Titles>

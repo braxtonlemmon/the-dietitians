@@ -15,6 +15,13 @@ const TextBlock = styled.p`
   line-height: 22px;
 `
 
+const DividerLine = styled.div`
+  width: 95%;
+  margin: 10px auto;
+  height: 2px;
+  background: lightgray;
+`
+
 const Button = styled.button<{
   type:
     | 'primaryFilled'
@@ -50,4 +57,4 @@ const Button = styled.button<{
       : '#fff'};
 `
 
-export {SectionWrapper, Title, TextBlock, Button}
+export {SectionWrapper, Title, TextBlock, Button, DividerLine}

@@ -1,15 +1,37 @@
 import React from 'react'
 import {SectionWrapper, TextBlock, Title} from '../shared'
 import styled from 'styled-components'
-
-const Slider = styled.div`
-  height: 200px;
-  width: 100%;
-`
+import {StaticImage} from 'gatsby-plugin-image'
 
 const Container = styled.div`
-  padding: 0 200px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0px 100px 50px 100px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+  @media (max-width: 767px) {
+    padding: 0 50px 50px 50px;
+  }
+  @media (max-width: 500px) {
+    padding: 0 25px 50px 25px;
+  }
 `
+
+const StyledList = styled.ul`
+  max-width: 550px;
+`
+
+const ListItem = styled.li`
+  list-style: disc;
+  margin: 10px 0;
+  margin-left: 25px;
+`
+
 const servicesList = [
   'Eating Disorders- Binge Eating Disorder, Anorexia Nervosa, Bulimia Nervosa, Avoidant Restrictive Food Intake Disorder, Other Specified Feeding or Eating Disorder',
   'Disordered Eating',
@@ -34,27 +56,31 @@ const servicesList = [
 
 const Services: React.FC = () => {
   return (
-    <SectionWrapper style={{background: '#dfdfdf'}}>
+    <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="services" />
       <Container>
-        <Title>Services offered virtually, in person, and at your home</Title>
-        <TextBlock>
-          Tempus urna et pharetra pharetra massa massa ultricies mi quis. Eu sem
-          integer vitae justo eget. Orci sagittis eu volutpat odio facilisis
-          mauris sit amet massa. Ac feugiat sed lectus vestibulum mattis
-          ullamcorper velit sed ullamcorper. Ipsum dolor sit amet consectetur.
-          Elit at imperdiet dui accumsan. Lacus viverra vitae congue eu
-          consequat ac. Bibendum ut tristique et egestas quis ipsum. Amet
-          consectetur adipiscing elit duis tristique sollicitudin nibh sit.
-          Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam.
-          Sed turpis tincidunt id aliquet.
-        </TextBlock>
-        <ul>
-          {servicesList.map((service) => (
-            <li>{service}</li>
-          ))}
-        </ul>
-        <Slider />
+        <div style={{flex: 1}}>
+          <Title>Services offered virtually, in person, and at your home</Title>
+          <TextBlock>
+            Personalized one-on-one nutrition counseling tailored to your
+            specific health journey.
+          </TextBlock>
+          <StyledList>
+            {servicesList.map((service) => (
+              <ListItem>{service}</ListItem>
+            ))}
+          </StyledList>
+        </div>
+        <div style={{flex: 0.5}}>
+          <StaticImage
+            src="../images/image_18.jpeg"
+            alt=""
+            style={{
+              borderRadius: '10px',
+              maxHeight: '600px',
+            }}
+          />
+        </div>
       </Container>
     </SectionWrapper>
   )

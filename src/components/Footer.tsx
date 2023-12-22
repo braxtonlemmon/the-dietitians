@@ -3,8 +3,9 @@ import styled from 'styled-components'
 
 const Container = styled.footer`
   background: #347b6d;
+  background: #474b4c;
   width: 100%;
-  padding: 100px;
+  padding: 50px;
 `
 
 const Footer: React.FC = () => {

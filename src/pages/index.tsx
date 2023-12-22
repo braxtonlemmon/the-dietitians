@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, {useState} from 'react'
 import type {HeadFC, PageProps} from 'gatsby'
 import styled from 'styled-components'
 import Header from '../components/Header'
@@ -13,6 +13,8 @@ import Footer from '../components/Footer'
 import Testimonials from '../components/Testimonials'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import MobileNav from '../components/MobileNav'
+import {DividerLine} from '../shared'
 const Container = styled.main`
   position: relative;
   width: 100%;
@@ -32,16 +34,28 @@ const Content = styled.div`
 `
 
 const IndexPage: React.FC<PageProps> = ({data}) => {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   return (
     <Container>
-      <TopBanner />
-      <Header />
+      <MobileNav isOpen={isMobileNavOpen} setIsOpen={setIsMobileNavOpen} />
+      {/* <TopBanner /> */}
+      <Header
+        setIsMobileNavOpen={setIsMobileNavOpen}
+        isMobileNavOpen={isMobileNavOpen}
+      />
       <Hero />
       <Content>
         <About />
+        <DividerLine />
+
         <Services />
-        <Testimonials />
+        <DividerLine />
+
         <Team />
+        <DividerLine />
+
+        <Testimonials />
+        <DividerLine />
         <Contact />
       </Content>
       <Footer />
