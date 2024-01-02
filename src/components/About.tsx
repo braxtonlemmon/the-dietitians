@@ -178,12 +178,11 @@ const About: React.FC = () => {
           </TextBlock>
           <TextBlockTitle>Weight Concerns</TextBlockTitle>
           <TextBlock style={{marginBottom: '30px'}}>
-            Although weight-neutrality and intuitive eating is our approach for
-            our clients, it does not mean we are unable or unwilling to discuss
-            weight concerns. If this is important to you, it is important to us.
-            We will work together in creating a positive approach to food and
-            self-image that promotes healthy sustainable lifestyle behavior
-            changes.
+            Although we strive for weight-neutrality and a focus on intuitive
+            eating, we are still willing to discuss weight concerns. Our goal is
+            to work together with you in creating sustainable lifestyle changes
+            that will optimize your health and promote a healthy relationship
+            with your body and food.
           </TextBlock>
         </AboutOne>
         {/* <VideoContainer /> */}

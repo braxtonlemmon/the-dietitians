@@ -54,7 +54,7 @@ const RowContainer = styled.div`
 `
 
 const Link = styled.a`
-  color: #347b6d;
+  color: #515352;
   &:hover {
     transform: scale(1.05);
   }
@@ -86,6 +86,7 @@ const Emailable = styled.a`
   display: flex;
   gap: 15px;
   align-items: center;
+  color: #515352;
 `
 
 export const navLinks: Link[] = [
@@ -154,6 +155,7 @@ const Header: React.FC<HeaderProps> = ({
           onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
           style={{cursor: 'pointer'}}
           size={24}
+          color="#515352"
         />
       )}
       <RowContainer>
@@ -163,6 +165,11 @@ const Header: React.FC<HeaderProps> = ({
             alt="komplete nutrition logo"
           />
         </LogoContainer>
+        {shouldHideEmail && (
+          <Emailable href="mailto:komplete.info.k@gmail.com">
+            <MdOutlineMail size={24} color="#515352" />
+          </Emailable>
+        )}
       </RowContainer>
       {!shouldHideLinks && (
         <Links>
@@ -173,7 +180,7 @@ const Header: React.FC<HeaderProps> = ({
       )}
       {!shouldHideEmail && (
         <Emailable href="mailto:komplete.info.k@gmail.com">
-          <MdOutlineMail size={24} />
+          <MdOutlineMail size={24} color="#515352" />
           <p>komplete.info.k@gmail.com</p>
         </Emailable>
       )}

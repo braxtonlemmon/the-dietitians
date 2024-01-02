@@ -19,7 +19,7 @@ const Container = styled.nav<{isOpen: boolean}>`
   transition: all 600ms ease;
   z-index: 4;
   box-shadow: 5px 0 5px -5px #333;
-  padding-top: 250px;
+  padding-top: 100px;
   padding-left: 20px;
 `
 

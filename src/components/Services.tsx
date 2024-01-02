@@ -33,25 +33,25 @@ const ListItem = styled.li`
 `
 
 const servicesList = [
-  'Eating Disorders- Binge Eating Disorder, Anorexia Nervosa, Bulimia Nervosa, Avoidant Restrictive Food Intake Disorder, Other Specified Feeding or Eating Disorder',
+  'Bariatric Surgery evaluations*',
+  'Celiac',
+  'Chronic Kidney Disease (stages 1-4)',
+  'Constipation/Diarrhea/Stomach pain',
+  'Crohn’s disease',
+  'Diabetes',
   'Disordered Eating',
+  'Eating Disorders- Binge Eating Disorder, Anorexia Nervosa, Bulimia Nervosa, Avoidant Restrictive Food Intake Disorder, Other Specified Feeding or Eating Disorder',
+  'Ehlers Danlos syndrome (EDS)',
+  'Fatty Liver Disease/Cirrhosis',
+  'Gastroparesis',
+  'General wellness',
   'IBS (Irritable Bowel Syndrome)',
+  'POTS (Postural Orthostatic Tachycardia Syndrome)',
   'SIBO (Small Intestinal Bacteria Overgrowth)',
   'Sucrase Isomaltase enzyme deficiencies',
-  'Ehlers Danlos syndrome (EDS)',
-  'POTS (Postural Orthostatic Tachycardia Syndrome)',
   'Superior Mesenteric Artery Syndrome (SMA)',
-  'Gastroparesis',
-  'Celiac',
-  'Crohn’s disease',
   'Ulcerative colitis',
-  'Constipation/Diarrhea/Stomach pain',
-  'General wellness',
-  'Type 2 Diabetes',
-  'Fatty Liver Disease/Cirrhosis',
-  'Chronic Kidney Disease (stages 1-4)',
-  'Bariatric Surgery evaluations*',
-  'LGBTQ+ friendly',
+  'LGBTQ+',
 ]
 
 const Services: React.FC = () => {
@@ -60,7 +60,7 @@ const Services: React.FC = () => {
       <div style={{height: '50px', width: '100%'}} id="services" />
       <Container>
         <div style={{flex: 1}}>
-          <Title>Services offered virtually, in person, and at your home</Title>
+          <Title>Services offered virtually, in person coming soon</Title>
           <TextBlock>
             Personalized one-on-one nutrition counseling tailored to your
             specific health journey.
@@ -70,6 +70,18 @@ const Services: React.FC = () => {
               <ListItem>{service}</ListItem>
             ))}
           </StyledList>
+          <TextBlock
+            style={{
+              fontStyle: 'italic',
+              fontSize: '14px',
+              marginTop: '16px',
+              maxWidth: '700px',
+            }}
+          >
+            *If you are looking for your initial evaluation only for insurance
+            requirements for bariatric surgery, we may not be a good fit for
+            you. We highly recommend multiple visits prior and post surgery.
+          </TextBlock>
         </div>
         <div style={{flex: 0.5}}>
           <StaticImage

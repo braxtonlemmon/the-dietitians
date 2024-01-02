@@ -22,6 +22,11 @@ const Container = styled.div`
   .slick-next {
     z-index: 1;
   }
+  @media (max-width: 500px) {
+    .slider {
+      height: 450px;
+    }
+  }
   @media (max-width: 767px) {
     padding: 0 50px 50px 50px;
   }
@@ -34,6 +39,7 @@ const InnerContainer = styled.div`
   align-items: center;
   @media (max-width: 767px) {
     flex-direction: column;
+    gap: 0px;
   }
 `
 
@@ -44,6 +50,9 @@ const TestimonialContainer = styled.div`
   height: 320px;
   width: 100%;
   padding: 0 15px;
+  @media (max-width: 500px) {
+    height: 450px;
+  }
 `
 
 const Testimonial = styled.p`
@@ -62,6 +71,14 @@ const LeftArrow = styled(AiOutlineArrowLeft)`
   z-index: 5;
   height: 32px;
   width: 32px;
+`
+
+const ImageContainer = styled.div`
+  width: 60%;
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-top: 24px;
+  }
 `
 
 const testimonials: string[] = [
@@ -90,7 +107,7 @@ const Testimonials: React.FC = () => {
       <Container>
         <Title>Testimonials</Title>
         <InnerContainer>
-          <div style={{width: width < 767 ? '100%' : '60%'}}>
+          <ImageContainer>
             <StaticImage
               src="../images/image_5.jpeg"
               alt=""
@@ -99,7 +116,7 @@ const Testimonials: React.FC = () => {
                 maxHeight: '600px',
               }}
             />
-          </div>
+          </ImageContainer>
           <div style={{width: width < 767 ? '100%' : '40%'}}>
             <Slider
               {...settings}
