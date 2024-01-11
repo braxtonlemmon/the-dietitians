@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
             Education
           </Description>
           <Buttons>
-            <a href="mailto:komplete.info.k@gmail.com">
+            <a href="mailto:kompletenutrition@gmail.com">
               <Button type="primaryFilled" style={{background: '#bb9c92'}}>
                 Book a 15 min free consult today!
               </Button>

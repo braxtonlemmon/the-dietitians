@@ -166,7 +166,7 @@ const Header: React.FC<HeaderProps> = ({
           />
         </LogoContainer>
         {shouldHideEmail && (
-          <Emailable href="mailto:komplete.info.k@gmail.com">
+          <Emailable href="mailto:kompletenutrition@gmail.com">
             <MdOutlineMail size={24} color="#515352" />
           </Emailable>
         )}
@@ -179,9 +179,9 @@ const Header: React.FC<HeaderProps> = ({
         </Links>
       )}
       {!shouldHideEmail && (
-        <Emailable href="mailto:komplete.info.k@gmail.com">
+        <Emailable href="mailto:kompletenutrition@gmail.com">
           <MdOutlineMail size={24} color="#515352" />
-          <p>komplete.info.k@gmail.com</p>
+          <p>kompletenutrition@gmail.com</p>
         </Emailable>
       )}
     </MainHeader>

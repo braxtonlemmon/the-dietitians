@@ -94,8 +94,8 @@ const Contact: React.FC = () => {
         </Row>
         <Row>
           <p>Email:</p>
-          <a href="mailto:komplete.info.k@gmail.com">
-            komplete.info.k@gmail.com
+          <a href="mailto:kompletenutrition@gmail.com">
+            kompletenutrition@gmail.com
           </a>
         </Row>
         <Col style={{marginTop: '20px'}}>

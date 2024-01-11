@@ -58,9 +58,9 @@ const TopBanner: React.FC = () => {
       <LeftSide>
         {' '}
         {shouldShowEmail && (
-          <Emailable href="mailto:komplete.info.k@gmail.com">
+          <Emailable href="mailto:kompletenutrition@gmail.com">
             <MdOutlineMail size={24} color={yellow} />
-            <p style={{color: yellow}}>komplete.info.k@gmail.com</p>
+            <p style={{color: yellow}}>kompletenutrition@gmail.com</p>
           </Emailable>
         )}
       </LeftSide>
