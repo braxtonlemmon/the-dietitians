@@ -15,6 +15,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import MobileNav from '../components/MobileNav'
 import {DividerLine} from '../shared'
+import SEO from '../components/SEO'
 const Container = styled.main`
   position: relative;
   width: 100%;
@@ -37,6 +38,10 @@ const IndexPage: React.FC<PageProps> = ({data}) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   return (
     <Container>
+      <SEO
+        description="nutrition counseling, medical nutrition therapy, diabetes"
+        title="Komplete Nutrition"
+      />
       <MobileNav isOpen={isMobileNavOpen} setIsOpen={setIsMobileNavOpen} />
       {/* <TopBanner /> */}
       <Header

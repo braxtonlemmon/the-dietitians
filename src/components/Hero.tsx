@@ -58,47 +58,50 @@ const Buttons = styled.div`
 
 const Hero: React.FC = () => {
   return (
-    <Container>
-      <StaticImage
-        style={{gridArea: '1/1', maxHeight: 1200}}
-        layout="fullWidth"
-        // aspectRatio={3 / 1}
-        alt=""
-        src="../images/image_15.jpeg"
-      />
-      <HeroTextContainer
-        style={{
-          gridArea: '1/1',
-          position: 'relative',
-          placeItems: 'center',
-          display: 'grid',
-          alignContent: 'center',
-        }}
-      >
-        <HeroText>Komplete Nutrition: Your Path to Healing</HeroText>
-        <SubInfo>
-          <Description>
-            Nutrition counseling / Medical Nutrition Therapy / Diabetes
-            Education
-          </Description>
-          <Buttons>
-            <a href="mailto:kompletenutrition@gmail.com">
-              <Button type="primaryFilled" style={{background: '#bb9c92'}}>
-                Book a 15 min free consult today!
-              </Button>
-            </a>
-            <a href="#about">
-              <Button
-                type="secondaryFilled"
-                style={{background: '#474b4c', color: '#fff'}}
-              >
-                More about us
-              </Button>
-            </a>
-          </Buttons>
-        </SubInfo>
-      </HeroTextContainer>
-    </Container>
+    <>
+      <div style={{height: '0', width: '100%'}} id="home" />
+      <Container>
+        <StaticImage
+          style={{gridArea: '1/1', maxHeight: 1200}}
+          layout="fullWidth"
+          // aspectRatio={3 / 1}
+          alt=""
+          src="../images/image_15.jpeg"
+        />
+        <HeroTextContainer
+          style={{
+            gridArea: '1/1',
+            position: 'relative',
+            placeItems: 'center',
+            display: 'grid',
+            alignContent: 'center',
+          }}
+        >
+          <HeroText>Komplete Nutrition: Your Path to Healing</HeroText>
+          <SubInfo>
+            <Description>
+              Nutrition counseling / Medical Nutrition Therapy / Diabetes
+              Education
+            </Description>
+            <Buttons>
+              <a href="mailto:kompletenutrition@gmail.com">
+                <Button type="primaryFilled" style={{background: '#bb9c92'}}>
+                  Book a 15 min free consult today!
+                </Button>
+              </a>
+              <a href="#about">
+                <Button
+                  type="secondaryFilled"
+                  style={{background: '#474b4c', color: '#fff'}}
+                >
+                  More about us
+                </Button>
+              </a>
+            </Buttons>
+          </SubInfo>
+        </HeroTextContainer>
+      </Container>
+    </>
   )
 }
 
