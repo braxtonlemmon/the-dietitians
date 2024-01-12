@@ -38,10 +38,6 @@ const IndexPage: React.FC<PageProps> = ({data}) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   return (
     <>
-      <SEO
-        description="nutrition counseling, medical nutrition therapy, diabetes"
-        title="Komplete Nutrition"
-      />
       <Container>
         <MobileNav isOpen={isMobileNavOpen} setIsOpen={setIsMobileNavOpen} />
         {/* <TopBanner /> */}
@@ -72,4 +68,9 @@ const IndexPage: React.FC<PageProps> = ({data}) => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Komplete Nutrition</title>
+export const Head: HeadFC = () => (
+  <SEO
+    title="Komplete Nutrition"
+    description="nutrition counseling, medical nutrition therapy, diabetes"
+  />
+)
