@@ -37,34 +37,36 @@ const Content = styled.div`
 const IndexPage: React.FC<PageProps> = ({data}) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   return (
-    <Container>
+    <>
       <SEO
         description="nutrition counseling, medical nutrition therapy, diabetes"
         title="Komplete Nutrition"
       />
-      <MobileNav isOpen={isMobileNavOpen} setIsOpen={setIsMobileNavOpen} />
-      {/* <TopBanner /> */}
-      <Header
-        setIsMobileNavOpen={setIsMobileNavOpen}
-        isMobileNavOpen={isMobileNavOpen}
-      />
-      <Hero />
-      <Content>
-        <About />
-        <DividerLine />
+      <Container>
+        <MobileNav isOpen={isMobileNavOpen} setIsOpen={setIsMobileNavOpen} />
+        {/* <TopBanner /> */}
+        <Header
+          setIsMobileNavOpen={setIsMobileNavOpen}
+          isMobileNavOpen={isMobileNavOpen}
+        />
+        <Hero />
+        <Content>
+          <About />
+          <DividerLine />
 
-        <Services />
-        <DividerLine />
+          <Services />
+          <DividerLine />
 
-        <Team />
-        <DividerLine />
+          <Team />
+          <DividerLine />
 
-        <Testimonials />
-        <DividerLine />
-        <Contact />
-      </Content>
-      <Footer />
-    </Container>
+          <Testimonials />
+          <DividerLine />
+          <Contact />
+        </Content>
+        <Footer />
+      </Container>
+    </>
   )
 }
 
