@@ -24,11 +24,11 @@ const SEO: React.FC<SEOProps> = ({description, title}) => {
 
   const metaDescription = description || data.site.siteMetadata.description
   return (
-    <>
+    <head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={data.site.siteMetadata.keywords} />
-    </>
+    </head>
   )
 }
 
