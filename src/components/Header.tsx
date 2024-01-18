@@ -4,7 +4,6 @@ import {MdOutlineMail} from 'react-icons/md'
 import {graphql, useStaticQuery} from 'gatsby'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {useWindowSize} from '../hooks/useWindowSize'
-// import {useWindowSize} from 'usehooks-ts'
 
 interface HeaderProps {
   setIsMobileNavOpen: (isOpen: boolean) => void
@@ -141,8 +140,15 @@ const Header: React.FC<HeaderProps> = ({
           }
         }
       }
+      allSanityContactInfo {
+        nodes {
+          email
+        }
+      }
     }
   `)
+
+  const {email} = data.allSanityContactInfo.nodes[0]
 
   const {width} = useWindowSize()
   const shouldHideLinks = width < 1200
@@ -166,7 +172,7 @@ const Header: React.FC<HeaderProps> = ({
           />
         </LogoContainer>
         {shouldHideEmail && (
-          <Emailable href="mailto:kompletenutrition@gmail.com">
+          <Emailable href={`mailto:${email}`}>
             <MdOutlineMail size={24} color="#515352" />
           </Emailable>
         )}
@@ -179,9 +185,9 @@ const Header: React.FC<HeaderProps> = ({
         </Links>
       )}
       {!shouldHideEmail && (
-        <Emailable href="mailto:kompletenutrition@gmail.com">
+        <Emailable href={`mailto:${email}`}>
           <MdOutlineMail size={24} color="#515352" />
-          <p>kompletenutrition@gmail.com</p>
+          <p>{email}</p>
         </Emailable>
       )}
     </MainHeader>

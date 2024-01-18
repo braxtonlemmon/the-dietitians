@@ -2,6 +2,7 @@ import React from 'react'
 import {SectionWrapper, Title} from '../shared'
 import styled from 'styled-components'
 import {StaticImage} from 'gatsby-plugin-image'
+import {graphql, useStaticQuery} from 'gatsby'
 
 const Container = styled.div`
   /* padding: 0 200px; */
@@ -49,54 +50,31 @@ const ListItem = styled.li`
   margin-left: 25px;
 `
 
-const physicalLocations = [
-  'Peoria, Arizona',
-  'Surprise, Arizona',
-  'Ogden, Utah – coming',
-  'Layton, Utah – coming',
-  'Salt Lake City – coming',
-]
-
-const virtualLocations = [
-  'Arizona',
-  'Alaska',
-  'California',
-  'Colorado',
-  'Connecticut',
-  'Hawaii',
-  'Idaho',
-  'Indiana',
-  'Massachusetts',
-  'New Hampshire',
-  'New York',
-  'Oklahoma',
-  'Oregon',
-  'Pennsylvania',
-  'Texas',
-  'Utah',
-  'Vermont',
-  'Virginia',
-  'Washington',
-  'West Virginia',
-  'Wisconsin',
-  'Wyoming',
-]
-
 const Contact: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query ContactQuery {
+      allSanityContactInfo {
+        nodes {
+          title
+          phone
+          email
+        }
+      }
+    }
+  `)
+  const {title, phone, email} = data.allSanityContactInfo.nodes[0]
   return (
     <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="contact" />
       <Container>
-        <Title>Contact</Title>
+        <Title>{title}</Title>
         <Row>
           <p>Phone:</p>
-          <a href="tel:8019959458">801-995-9458</a>
+          <a href={`tel:${phone.replaceAll('-', '')}`}>{phone}</a>
         </Row>
         <Row>
           <p>Email:</p>
-          <a href="mailto:kompletenutrition@gmail.com">
-            kompletenutrition@gmail.com
-          </a>
+          <a href={`mailto:${email}`}>{email}</a>
         </Row>
         <Col style={{marginTop: '20px'}}>
           <p style={{fontSize: '20px'}}>Available virtual locations:</p>
@@ -109,11 +87,6 @@ const Contact: React.FC = () => {
               />
             </Image>
           </ImageContainer>
-          {/* <ul>
-            {virtualLocations.map((location) => (
-              <ListItem>{location}</ListItem>
-            ))}
-          </ul> */}
         </Col>
         <Col style={{marginTop: '20px'}}>
           <p style={{fontSize: '20px'}}>Physical locations coming soon!</p>

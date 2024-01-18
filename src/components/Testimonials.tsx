@@ -5,6 +5,7 @@ import Slider from 'react-slick'
 import {AiOutlineArrowRight, AiOutlineArrowLeft} from 'react-icons/ai'
 import {useWindowSize} from '../hooks/useWindowSize'
 import {StaticImage} from 'gatsby-plugin-image'
+import {graphql, useStaticQuery} from 'gatsby'
 
 const Container = styled.div`
   /* padding: 0 150px; */
@@ -81,15 +82,17 @@ const ImageContainer = styled.div`
   }
 `
 
-const testimonials: string[] = [
-  '[Komplete Nutrition] has truly made a massive impact on my life. I have struggled for a long time, and they truly helped me see the other side. They are kind, funny, and truly want the best for their patients. I am so lucky I found this program. I will continue to recommend this place to everyone. They are AMAZING.',
-  "There are truly no words to describe how absolutely amazing the professionals in the company are![Komplete Nutrition] has helped me beyond measure. After working with other specialists for years, I thought I was stuck in my disordered eating cycle forever because nothing seemed to be working. Working with them has given me insights into my habits that I would've never picked up on, and those insights have put me on a path to recovery that I haven't been able to achieve before. Without exaggeration, she's given me my life back because my disordered eating is no longer at the forefront. I will never be able to show them enough gratitude!",
-  "I searched for help for over a year and this is THE place that worked for me. They is incredibly kind, encouraging, and knowledgeable. I did all my sessions over zoom and it was so helpful. Never thought I would've made this much progress. If you are even considering setting up an appointment, DO IT! Best decision I've ever made when it comes to my physical and mental health",
-  'I met with [Komplete Nutrition] and had an amazing experience! They helped me understand my food struggles and gave me tools to conquer them. So grateful for the help I received!',
-  'Best decision I have ever made was getting help. [Komplete Nutrition] has changed my life for the better and I will forever be grateful.',
-]
-
 const Testimonials: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query TestimonialsQuery {
+      allSanityTestimonialsSection {
+        nodes {
+          testimonials
+        }
+      }
+    }
+  `)
+  const {testimonials} = data.allSanityTestimonialsSection.nodes[0]
   const {width} = useWindowSize()
   const settings = {
     dots: true,
@@ -124,8 +127,8 @@ const Testimonials: React.FC = () => {
               nextArrow={<RightArrow color="black" />}
               prevArrow={<LeftArrow color="black" />}
             >
-              {testimonials.map((testimonial) => (
-                <div>
+              {testimonials.map((testimonial: string, index: number) => (
+                <div key={`testimonial-${index}`}>
                   <TestimonialContainer>
                     <Testimonial>{`"${testimonial}"`}</Testimonial>
                   </TestimonialContainer>

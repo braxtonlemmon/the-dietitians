@@ -1,4 +1,9 @@
 import type {GatsbyConfig} from 'gatsby'
+const dotenv = require('dotenv')
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -48,6 +53,15 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/favicon.png',
+      },
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+        dataset: process.env.GATSBY_SANITY_DATASET,
+        token: process.env.GATSBY_SANITY_TOKEN,
+        overlayDrafts: true,
       },
     },
   ],

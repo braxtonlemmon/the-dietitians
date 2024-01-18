@@ -2,6 +2,7 @@ import React from 'react'
 import {SectionWrapper, TextBlock, Title} from '../shared'
 import styled from 'styled-components'
 import {StaticImage} from 'gatsby-plugin-image'
+import {graphql, useStaticQuery} from 'gatsby'
 
 const Container = styled.div`
   width: 100%;
@@ -55,18 +56,30 @@ const servicesList = [
 ]
 
 const Services: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query ServicesQuery {
+      allSanityServices {
+        nodes {
+          title
+          description
+          servicesOffered
+          asteriskNote
+        }
+      }
+    }
+  `)
+
+  const {title, description, servicesOffered, asteriskNote} =
+    data.allSanityServices.nodes[0]
   return (
     <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="services" />
       <Container>
         <div style={{flex: 1}}>
-          <Title>Services offered virtually, in person coming soon</Title>
-          <TextBlock>
-            Personalized one-on-one nutrition counseling tailored to your
-            specific health journey.
-          </TextBlock>
+          <Title>{title}</Title>
+          <TextBlock>{description}</TextBlock>
           <StyledList>
-            {servicesList.map((service) => (
+            {servicesOffered.map((service: string) => (
               <ListItem>{service}</ListItem>
             ))}
           </StyledList>
@@ -78,9 +91,7 @@ const Services: React.FC = () => {
               maxWidth: '700px',
             }}
           >
-            *If you are looking for your initial evaluation only for insurance
-            requirements for bariatric surgery, we may not be a good fit for
-            you. We highly recommend multiple visits prior and post surgery.
+            {asteriskNote}
           </TextBlock>
         </div>
         <div style={{flex: 0.5}}>

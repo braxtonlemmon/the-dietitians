@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {Button} from '../shared'
 import {StaticImage} from 'gatsby-plugin-image'
+import {graphql, useStaticQuery} from 'gatsby'
 
 const Container = styled.div`
   width: 100%;
@@ -57,6 +58,20 @@ const Buttons = styled.div`
 `
 
 const Hero: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query HeroQuery {
+      allSanityHeroInfo {
+        nodes {
+          title
+          subTitle
+          buttonTwoText
+          buttonOneText
+        }
+      }
+    }
+  `)
+  const {title, subtitle, buttonOneText, buttonTwoText} =
+    data.allSanityHeroInfo.nodes[0]
   return (
     <>
       <div style={{height: '0', width: '100%'}} id="home" />
@@ -77,16 +92,13 @@ const Hero: React.FC = () => {
             alignContent: 'center',
           }}
         >
-          <HeroText>Komplete Nutrition: Your Path to Healing</HeroText>
+          <HeroText>{title}</HeroText>
           <SubInfo>
-            <Description>
-              Nutrition counseling / Medical Nutrition Therapy / Diabetes
-              Education
-            </Description>
+            <Description>{subtitle}</Description>
             <Buttons>
               <a href="mailto:kompletenutrition@gmail.com">
                 <Button type="primaryFilled" style={{background: '#bb9c92'}}>
-                  Book a 15 min free consult today!
+                  {buttonOneText}
                 </Button>
               </a>
               <a href="#about">
@@ -94,7 +106,7 @@ const Hero: React.FC = () => {
                   type="secondaryFilled"
                   style={{background: '#474b4c', color: '#fff'}}
                 >
-                  More about us
+                  {buttonTwoText}
                 </Button>
               </a>
             </Buttons>

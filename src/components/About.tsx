@@ -4,10 +4,17 @@ import styled from 'styled-components'
 import {LuApple} from 'react-icons/lu'
 import {IconType} from 'react-icons'
 import {StaticImage} from 'gatsby-plugin-image'
+import {graphql, useStaticQuery} from 'gatsby'
 
 type GridItem = {
   icon: ReactElement
   text: string
+}
+
+type AboutSection = {
+  sectionTitle: string
+  sectionText: string
+  _key: string
 }
 
 const Container = styled.div`
@@ -130,60 +137,45 @@ const ContactLink = styled.a`
   font-weight: bold;
 `
 
-const gridItems: GridItem[] = [
-  {icon: <LuApple size={34} color="grey" />, text: 'Anti-diet'},
-  {icon: <LuApple size={34} color="grey" />, text: 'Gentle nutrition'},
-  {icon: <LuApple size={34} color="grey" />, text: 'Health at every size'},
-  {icon: <LuApple size={34} color="grey" />, text: 'Intuitive eating'},
-  {icon: <LuApple size={34} color="grey" />, text: 'Patient centered'},
-  {icon: <LuApple size={34} color="grey" />, text: 'Food as medicine'},
-  {icon: <LuApple size={34} color="grey" />, text: 'Behavior focused'},
-  {icon: <LuApple size={34} color="grey" />, text: 'Weight neutral'},
-]
 const About: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query AboutQuery {
+      allSanityAbout {
+        nodes {
+          title
+          values
+          aboutSections {
+            _key
+            sectionText
+            sectionTitle
+          }
+        }
+      }
+    }
+  `)
+  const {title, values, aboutSections} = data.allSanityAbout.nodes[0]
+
   return (
     <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="about" />
       <Container>
         <AboutOne>
-          <Title style={{marginBottom: '50px'}}>About Us</Title>
-          <TextBlockTitle>Disordered Eating & Eating Disorders</TextBlockTitle>
-          <TextBlock style={{marginBottom: '30px'}}>
-            Whether you’ve been diagnosed with an eating disorder or struggling
-            with diet culture, self-image, and your relationship with food, we
-            can help! We aim to heal your relationship with your body and help
-            you make peace with food. Our approach is that of Health at Every
-            Size and Intuitive Eating.
-          </TextBlock>
-          <TextBlockTitle>Gastrointestinal Health</TextBlockTitle>
-          <TextBlock style={{marginBottom: '30px'}}>
-            Recent diagnosis with IBS, SIBO, Crohn’s, or Colitis? Or maybe you
-            are struggling with upset stomach, diarrhea, constipation, and/or
-            pain and have tried everything to no avail? Maybe you’re afraid to
-            eat or go anywhere too far from a bathroom? We are here for you.
-            Working with gastrointestinal issues, needs to be tailored to the
-            individual and working with their unique gut biome. Nutritional
-            counseling as part of your treatment plan can help heal your gut and
-            identify triggers to guide you to liberation from your aggravating
-            symptoms.
-          </TextBlock>
-          <TextBlockTitle>
-            Chronic Disease Management and Prevention
-          </TextBlockTitle>
-          <TextBlock style={{marginBottom: '30px'}}>
-            Whatever chronic disease you’ve been diagnosed with, there is
-            promise of management and treatment through healing nutrition. Our
-            approach is focused on making sustainable lifestyle behavior changes
-            to guide you back to living your healthiest life.
-          </TextBlock>
-          <TextBlockTitle>Weight Concerns</TextBlockTitle>
-          <TextBlock style={{marginBottom: '30px'}}>
-            Although we strive for weight-neutrality and a focus on intuitive
-            eating, we are still willing to discuss weight concerns. Our goal is
-            to work together with you in creating sustainable lifestyle changes
-            that will optimize your health and promote a healthy relationship
-            with your body and food.
-          </TextBlock>
+          <Title style={{marginBottom: '50px'}}>{title}</Title>
+          {aboutSections.map((section: AboutSection) => {
+            return (
+              <>
+                <TextBlockTitle key={`about-subtitle-${section._key}`}>
+                  {section.sectionTitle}
+                </TextBlockTitle>
+                <TextBlock
+                  style={{marginBottom: '30px'}}
+                  key={`about-body-${section._key}`}
+                >
+                  {section.sectionText}
+                </TextBlock>
+              </>
+            )
+          })}
         </AboutOne>
         {/* <VideoContainer /> */}
         <Image>
@@ -199,10 +191,10 @@ const About: React.FC = () => {
             <Title>Values</Title>
           </AboutBottomTopHalf>
           <GridContainer>
-            {gridItems.map((gridItem, index) => {
+            {values.map((value: string, index: number) => {
               return (
                 <GridCard key={`grid-item-${index}`}>
-                  <GridCardText>{gridItem.text}</GridCardText>
+                  <GridCardText>{value}</GridCardText>
                 </GridCard>
               )
             })}
