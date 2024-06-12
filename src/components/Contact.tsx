@@ -58,11 +58,12 @@ const Contact: React.FC = () => {
           title
           phone
           email
+          fax
         }
       }
     }
   `)
-  const {title, phone, email} = data.allSanityContactInfo.nodes[0]
+  const {title, phone, email, fax} = data.allSanityContactInfo.nodes[0]
   return (
     <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="contact" />
@@ -71,6 +72,10 @@ const Contact: React.FC = () => {
         <Row>
           <p>Phone:</p>
           <a href={`tel:${phone.replaceAll('-', '')}`}>{phone}</a>
+        </Row>
+        <Row>
+          <p>Fax:</p>
+          <a href={`fax:${fax.replaceAll('-', '')}`}>{fax}</a>
         </Row>
         <Row>
           <p>Email:</p>
