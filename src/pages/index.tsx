@@ -16,6 +16,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import MobileNav from '../components/MobileNav'
 import {DividerLine} from '../shared'
 import SEO from '../components/SEO'
+import Insurance from '../components/Insurance'
 const Container = styled.main`
   position: relative;
   width: 100%;
@@ -49,13 +50,12 @@ const IndexPage: React.FC<PageProps> = ({data}) => {
         <Content>
           <About />
           <DividerLine />
-
           <Services />
           <DividerLine />
-
+          <Insurance />
+          <DividerLine />
           <Team />
           <DividerLine />
-
           <Testimonials />
           <DividerLine />
           <Contact />
