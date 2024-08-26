@@ -46,7 +46,7 @@ const Col = styled.div`
 
 const ListItem = styled.li`
   list-style: disc;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-left: 25px;
 `
 
@@ -61,9 +61,16 @@ const Contact: React.FC = () => {
           fax
         }
       }
+      allSanityLocations {
+        nodes {
+          physicalLocations
+        }
+      }
     }
   `)
+
   const {title, phone, email, fax} = data.allSanityContactInfo.nodes[0]
+  const {physicalLocations} = data.allSanityLocations.nodes[0]
   return (
     <SectionWrapper>
       <div style={{height: '50px', width: '100%'}} id="contact" />
@@ -94,7 +101,14 @@ const Contact: React.FC = () => {
           </ImageContainer>
         </Col>
         <Col style={{marginTop: '20px'}}>
-          <p style={{fontSize: '20px'}}>Physical locations coming soon!</p>
+          <p style={{fontSize: '20px', marginBottom: '16px'}}>
+            Available physical locations:
+          </p>
+          <ul>
+            {physicalLocations.map((location: string) => (
+              <ListItem>{location}</ListItem>
+            ))}
+          </ul>
         </Col>
       </Container>
     </SectionWrapper>

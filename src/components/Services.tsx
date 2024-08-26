@@ -33,6 +33,15 @@ const ListItem = styled.li`
   margin-left: 25px;
 `
 
+const ImageSection = styled.div`
+  flex: 0.5;
+  @media (max-width: 1200px) {
+    img {
+      max-height: 400px;
+    }
+  }
+`
+
 const servicesList = [
   'Bariatric Surgery evaluations*',
   'Celiac',
@@ -94,7 +103,7 @@ const Services: React.FC = () => {
             {asteriskNote}
           </TextBlock>
         </div>
-        <div style={{flex: 0.5}}>
+        <ImageSection>
           <StaticImage
             src="../images/image_18.jpeg"
             alt=""
@@ -103,7 +112,7 @@ const Services: React.FC = () => {
               maxHeight: '600px',
             }}
           />
-        </div>
+        </ImageSection>
       </Container>
     </SectionWrapper>
   )
