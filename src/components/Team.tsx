@@ -103,7 +103,7 @@ const Team: React.FC = () => {
             </TeamMemberPhoto>
             <TeamMemberTitles>
               <p>Kelli Jo Grover</p>
-              <Titles>MS, RD</Titles>
+              <Titles>MDA, RD</Titles>
             </TeamMemberTitles>
           </TeamMemberCard>
           <TeamMemberText>
