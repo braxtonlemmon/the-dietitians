@@ -101,6 +101,10 @@ export const navLinks: Link[] = [
     title: 'Services',
     section: '#services',
   },
+  {
+    title: 'Insurance',
+    section: '#insurance',
+  },
   // {
   //   title: 'Groups',
   //   section: '#groups',
@@ -112,10 +116,6 @@ export const navLinks: Link[] = [
   {
     title: 'Testimonials',
     section: '#testimonials',
-  },
-  {
-    title: 'Insurance',
-    section: '#insurance',
   },
   // {
   //   title: 'Referrals',
