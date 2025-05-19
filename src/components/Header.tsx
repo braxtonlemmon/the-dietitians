@@ -91,39 +91,35 @@ const Emailable = styled.a`
 export const navLinks: Link[] = [
   {
     title: 'Home',
-    section: '#home',
+    section: '/#home',
   },
   {
     title: 'About Us',
-    section: '#about',
+    section: '/#about',
   },
   {
     title: 'Services',
-    section: '#services',
+    section: '/#services',
   },
   {
     title: 'Insurance',
-    section: '#insurance',
+    section: '/#insurance',
   },
-  // {
-  //   title: 'Groups',
-  //   section: '#groups',
-  // },
   {
     title: 'Team',
-    section: '#team',
+    section: '/#team',
   },
   {
     title: 'Testimonials',
-    section: '#testimonials',
+    section: '/#testimonials',
   },
-  // {
-  //   title: 'Referrals',
-  //   section: '#referrals',
-  // },
+  {
+    title: 'Podcast',
+    section: '/podcast',
+  },
   {
     title: 'Contact',
-    section: '#contact',
+    section: '/#contact',
   },
 ]
 
