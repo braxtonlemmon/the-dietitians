@@ -13,6 +13,15 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding: 0px 100px 50px 100px;
+  @media (max-width: 767px) {
+    padding: 0 50px 50px 50px;
+  }
+  @media (max-width: 500px) {
+    margin: 0;
+    padding: 0 25px 50px 25px;
+    width: 100%;
+  }
 `
 
 const ShowNote = styled.div`
