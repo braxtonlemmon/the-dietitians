@@ -85,38 +85,6 @@ const Team: React.FC = () => {
       <Container>
         <Title>{title}</Title>
         <TextBlock>{description}</TextBlock>
-        {/* Kelli Jo  */}
-        <TeamMemberSection>
-          <TeamMemberCard>
-            <TeamMemberPhoto>
-              <StaticImage
-                src="../images/profile_pic_kelli_jo.jpeg"
-                alt="kelli jo profile pic"
-                height={200}
-                width={200}
-                // layout="constrained"
-                style={{
-                  borderTopLeftRadius: '10px',
-                  borderTopRightRadius: '10px',
-                }}
-              />
-            </TeamMemberPhoto>
-            <TeamMemberTitles>
-              <p>Kelli Jo Grover</p>
-              <Titles>MDA, RD</Titles>
-            </TeamMemberTitles>
-          </TeamMemberCard>
-          <TeamMemberText>
-            {teamMembers[0].infoParagraph.map(
-              (paragraph: string, index: number) => {
-                return (
-                  <TextBlock key={`kelli-info-${index}`}>{paragraph}</TextBlock>
-                )
-              }
-            )}
-          </TeamMemberText>
-        </TeamMemberSection>
-
         {/* Kylie */}
         <TeamMemberSection>
           <TeamMemberCard>
@@ -139,7 +107,7 @@ const Team: React.FC = () => {
             </TeamMemberTitles>
           </TeamMemberCard>
           <TeamMemberText>
-            {teamMembers[1].infoParagraph.map(
+            {teamMembers[0].infoParagraph.map(
               (paragraph: string, index: number) => {
                 return (
                   <TextBlock key={`kylie-info-${index}`}>{paragraph}</TextBlock>
