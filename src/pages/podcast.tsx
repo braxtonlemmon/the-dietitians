@@ -45,13 +45,13 @@ const PodcastPageSchema = z.object({
     edges: z.array(
       z.object({
         node: z.object({
-          closingLine: z.string(),
+          closingLine: z.string().nullable(),
           _id: z.string(),
           link: z.string(),
           summary: z.string(),
           title: z.string(),
           episodeNumber: z.number(),
-          topicsCovered: z.array(z.string()),
+          topicsCovered: z.array(z.string().optional()),
         }),
       })
     ),
@@ -80,13 +80,17 @@ const PodcastPage: React.FC<PageProps> = ({data}) => {
             <ShowNote key={note._id}>
               <ShowNoteTitle>{displayTitle}</ShowNoteTitle>
               <p>{note.summary}</p>
-              <p>Topics covered:</p>
-              <ul>
-                {note.topicsCovered.map((topic) => (
-                  <li key={topic}>✓ {topic}</li>
-                ))}
-              </ul>
-              <p>{note.closingLine}</p>
+              {note.topicsCovered.length > 0 && (
+                <>
+                  <p>Topics covered:</p>
+                  <ul>
+                    {note.topicsCovered.map((topic) => (
+                      <li key={topic}>✓ {topic}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {note.closingLine && <p>{note.closingLine}</p>}
               {spotifyEpisodeId && (
                 <div style={{maxWidth: '500px'}}>
                   <iframe

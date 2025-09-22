@@ -149,14 +149,16 @@ const Team: React.FC = () => {
             </TeamMemberPhoto>
             <TeamMemberTitles>
               <p>Kristine Knudsen</p>
-              <Titles>RDN</Titles>
+              <Titles>MS, RDN</Titles>
             </TeamMemberTitles>
           </TeamMemberCard>
           <TeamMemberText>
             {teamMembers[1].infoParagraph.map(
               (paragraph: string, index: number) => {
                 return (
-                  <TextBlock key={`kylie-info-${index}`}>{paragraph}</TextBlock>
+                  <TextBlock key={`kristine-info-${index}`}>
+                    {paragraph}
+                  </TextBlock>
                 )
               }
             )}
