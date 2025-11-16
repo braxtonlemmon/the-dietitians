@@ -164,6 +164,40 @@ const Team: React.FC = () => {
             )}
           </TeamMemberText>
         </TeamMemberSection>
+
+        {/* Alyssa */}
+        <TeamMemberSection>
+          <TeamMemberCard>
+            <TeamMemberPhoto>
+              {' '}
+              <StaticImage
+                src="../images/profile_pic_alyssa.jpeg"
+                alt="alyssa profile pic"
+                height={200}
+                width={200}
+                style={{
+                  borderTopLeftRadius: '10px',
+                  borderTopRightRadius: '10px',
+                }}
+              />
+            </TeamMemberPhoto>
+            <TeamMemberTitles>
+              <p>Alyssa Scordo</p>
+              <Titles>MS, RD, CSOWM</Titles>
+            </TeamMemberTitles>
+          </TeamMemberCard>
+          <TeamMemberText>
+            {teamMembers[2].infoParagraph.map(
+              (paragraph: string, index: number) => {
+                return (
+                  <TextBlock key={`alyssa-info-${index}`}>
+                    {paragraph}
+                  </TextBlock>
+                )
+              }
+            )}
+          </TeamMemberText>
+        </TeamMemberSection>
       </Container>
     </SectionWrapper>
   )
